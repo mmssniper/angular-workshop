@@ -15,6 +15,7 @@ namespace IN2.angular_workshop.server.Models
             this.DateCreated = null;
         }
 
+        public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<DateTime> DateCreated { get; set; }
     }
