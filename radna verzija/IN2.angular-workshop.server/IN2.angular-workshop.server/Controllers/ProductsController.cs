@@ -16,7 +16,11 @@ namespace IN2.angular_workshop.server.Controllers
         /// <returns></returns>
         public Product GetProductDetails()
         {
-            throw new NotImplementedException();
+            return new Product
+            {
+                Name = "Dummy Product",
+                DateCreated = DateTime.Now
+            };
         }
     }
 }
