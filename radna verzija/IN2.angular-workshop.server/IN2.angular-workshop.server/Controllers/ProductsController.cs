@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using IN2.angular_workshop.server.Models;
+using System.Net.Http.Headers;
 
 namespace IN2.angular_workshop.server.Controllers
 {
@@ -14,13 +15,22 @@ namespace IN2.angular_workshop.server.Controllers
         /// Fetch all details of one product
         /// </summary>
         /// <returns></returns>
-        public Product GetProductDetails()
+        public HttpResponseMessage GetProductDetails()
         {
-            return new Product
+            var response = Request.CreateResponse(HttpStatusCode.OK, 
+                new Product
+                {
+                    Id = 1,
+                    Name = "Dummy product",
+                    DateCreated = DateTime.Now
+                });
+
+            response.Headers.CacheControl = new CacheControlHeaderValue()
             {
-                Name = "Dummy Product",
-                DateCreated = DateTime.Now
+                NoCache = true
             };
+
+            return response;
         }
     }
 }
