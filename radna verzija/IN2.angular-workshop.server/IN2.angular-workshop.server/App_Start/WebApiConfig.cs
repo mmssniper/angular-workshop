@@ -14,6 +14,9 @@ namespace IN2.angular_workshop.server
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // koliko će Web API biti verbose sa greškama
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Never; //IncludeErrorDetailPolicy.LocalOnly;
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
