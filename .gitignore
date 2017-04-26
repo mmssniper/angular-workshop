@@ -2,4 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+/radna verzija/IN2.angular-workshop.server/*.suo
 /radna verzija/IN2.angular-workshop.server/IN2.angular-workshop.server/bin
+/radna verzija/IN2.angular-workshop.server/IN2.angular-workshop.server/obj
+/radna verzija/IN2.angular-workshop.server/IN2.angular-workshop.server.Tests/bin
+/radna verzija/IN2.angular-workshop.server/IN2.angular-workshop.server.Tests/obj
