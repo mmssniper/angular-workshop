@@ -14,14 +14,16 @@ namespace IN2.angular_workshop.server.Controllers
         /// <summary>
         /// Fetch all details of one product
         /// </summary>
-        /// <returns></returns>
-        public HttpResponseMessage GetProductDetails()
+        /// <param name="productId">Product Id</param>
+        /// <returns>Returns requested product details</returns>
+        public HttpResponseMessage GetProductDetails(int productId)
         {
             var response = Request.CreateResponse(HttpStatusCode.OK, 
                 new Product
                 {
                     Id = 1,
                     Name = "Dummy product",
+                    Price = 10.00m,
                     DateCreated = DateTime.Now
                 });
 
