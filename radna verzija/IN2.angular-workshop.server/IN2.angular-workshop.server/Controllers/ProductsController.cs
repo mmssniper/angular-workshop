@@ -27,10 +27,10 @@ namespace IN2.angular_workshop.server.Controllers
                     DateCreated = DateTime.Now
                 });
 
-            response.Headers.CacheControl = new CacheControlHeaderValue()
-            {
-                NoCache = true
-            };
+            //response.Headers.CacheControl = new CacheControlHeaderValue()
+            //{
+            //    NoCache = true
+            //};
 
             return response;
         }

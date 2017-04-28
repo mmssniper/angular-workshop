@@ -15,7 +15,7 @@ namespace IN2.angular_workshop.server.Controllers
         /// </summary>
         [ActionName("get-all-categories")]
         public HttpResponseMessage GetAllCategories()
-        {
+        {            
             try
             {
                 var categories = new List<Category>()
@@ -42,12 +42,15 @@ namespace IN2.angular_workshop.server.Controllers
                 }
             };
 
-            //DODATI THROW NEW EXCEPTION!!!
+            //throw new ApplicationException("test exceptiona...");            
+            throw new HttpResponseException(HttpStatusCode.NotFound);
+
+                //DODATI THROW NEW EXCEPTION!!!
                 return Request.CreateResponse(HttpStatusCode.OK, categories);
             }
             catch(Exception exc)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, exc);
             }
         }
 

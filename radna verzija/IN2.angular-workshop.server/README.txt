@@ -50,7 +50,8 @@ CategoriesController --> Kreiranje metode GetCategoryDetails(id) --> vraća 2 ka
 1) CategoriesController - (već kreirani Category i Product klase)
 2) dodati ActionName povrh svake sa povratnim rezultatima (razdvajanje sa -)
 
-/// <summary>
+2a) dodati na CategoriesController implementaciju metoda koja vraća dummy vrijednosti
+		/// <summary>
         /// Returns all existing categories in the system
         /// </summary>
         [ActionName("get-all-categories")]
@@ -109,6 +110,7 @@ CategoriesController --> Kreiranje metode GetCategoryDetails(id) --> vraća 2 ka
 3) prebaciti sve na HttpResponseMessage (Request.CreateResponse(Ok, products-categories)
 3a) testirati
 
-4) dodati try-catch na jednu metodu i onda dodati u CreateErrorResponse
+4) dodati try-catch na jednu metodu i onda dodati Request.CreateErrorResponse (upravljanje StatusCodovima, NotFound,BadRequest,InternalServerError, Unathorized,Forbidden,MethodNotAllowed...)
+4a) namjerno dodati throw throw new ApplicationException("test exceptiona...");            || throw new HttpResponseException(HttpStatusCode.NotFound);
 	
 ****************END 2 - HttpResponseMessage*******************************************************************************************

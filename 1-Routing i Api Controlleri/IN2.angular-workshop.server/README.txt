@@ -28,6 +28,8 @@
 rezultat: /api/categories
 /api/categories/1
 
+2d) pokazati razliku vezano za ActionName + parametre (id vs categoryId) + u ruting tablici dodati {action}
+
 3) Kreiranje praznog ProductsControllera
 3a) Kreiranje Product modela u Models direktoriju (Id, Name, Price, DateCreated)
 3b) Kreiranje metode GetProductDetails(id:int) 
