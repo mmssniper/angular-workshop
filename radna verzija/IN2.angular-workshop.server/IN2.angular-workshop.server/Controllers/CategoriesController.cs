@@ -43,7 +43,7 @@ namespace IN2.angular_workshop.server.Controllers
             };
 
             //throw new ApplicationException("test exceptiona...");            
-            throw new HttpResponseException(HttpStatusCode.NotFound);
+            //throw new HttpResponseException(HttpStatusCode.NotFound);
 
                 //DODATI THROW NEW EXCEPTION!!!
                 return Request.CreateResponse(HttpStatusCode.OK, categories);
