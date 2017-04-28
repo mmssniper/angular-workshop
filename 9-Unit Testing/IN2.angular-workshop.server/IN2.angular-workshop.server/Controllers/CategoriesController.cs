@@ -1,4 +1,5 @@
 ﻿using IN2.angular_workshop.server.Models;
+using IN2.angular_workshop.server.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,13 @@ namespace IN2.angular_workshop.server.Controllers
     [RoutePrefix("api/categories")]
     public class CategoriesController : ApiController
     {
+        private readonly ICategoryService _categoryService;
+
+        public CategoriesController(ICategoryService categoryService)
+        {
+            _categoryService = categoryService;
+        }
+
         /// <summary>
         /// Returns all existing categories in the system
         /// </summary>
@@ -20,29 +28,7 @@ namespace IN2.angular_workshop.server.Controllers
         {
             try
             {
-                var categories = new List<Category>()
-                {
-                    new Category
-                    {
-                        Id = 1,
-                        Name = "Jazz"
-                    },
-                    new Category
-                    {
-                        Id = 2,
-                        Name = "Rock"
-                    },
-                    new Category
-                    {
-                        Id = 3,
-                        Name = "Classic"
-                    },
-                    new Category
-                    {
-                        Id  = 4,
-                        Name = "Modern"
-                    }
-                };
+                var categories = _categoryService.GetAllCategories();
 
                 return Ok(categories);
             }
@@ -62,23 +48,9 @@ namespace IN2.angular_workshop.server.Controllers
         {            
             try
             {
-                var products = new List<Product>()
-                {
-                    new Product
-                    {
-                        Id = 1,
-                        Name = "Delicate Soundes of Thunder",
-                        Price = 25
-                    },
-                    new Product
-                    {
-                        Id = 2,
-                        Name = "Weeknd",
-                        Price = 15
-                    }
-                };
+                var productsForCategory = _categoryService.GetProductsForCategory(id);
 
-                return Ok(products);
+                return Ok(productsForCategory);
             }
             catch(Exception exc)
             {

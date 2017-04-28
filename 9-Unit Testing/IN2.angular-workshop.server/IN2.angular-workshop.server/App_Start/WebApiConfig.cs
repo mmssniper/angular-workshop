@@ -11,6 +11,8 @@ namespace IN2.angular_workshop.server
     {
         public static void Register(HttpConfiguration config)
         {
+            UnityConfig.RegisterComponents();
+
             // Web API configuration and services
             config.EnableCors();
 
@@ -23,7 +25,7 @@ namespace IN2.angular_workshop.server
             // koliko će Web API biti verbose sa greškama
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.LocalOnly;
 
-            config.Filters.Add(new ValidateErrorAttribute());
+            config.Filters.Add(new ValidateErrorAttribute());            
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

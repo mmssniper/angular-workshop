@@ -45,6 +45,13 @@ CategoriesController --> Kreiranje metode GetCategoryDetails(id) --> vraća 2 ka
 **ISKLJUČITI VS IE-Chrome js Debugging **
 *************************END 1 - CONTROLLERS i ROUTING***********************************************************
 
+***************************START 1a -- Attribute Routing********************************************************
+
+1) omogućiti AttributeRouting
+2) staviti RoutePrefix na controllere
+3) staviti Route na akcije
+***************************End 1a -- Attribute Routing********************************************************
+
 
 ****************2 - HttpResponseMessage*******************************************************************************************
 1) CategoriesController - (već kreirani Category i Product klase)
@@ -215,3 +222,27 @@ config.EnableCors(cors);
 
 ****************END START 8 - CORS  *******************************************************************************************
 
+****************START 9 - UNIT TESTING  *******************************************************************************************
+1) dodati Services folder
+2) kreirati  public interface ICategoryService
+    {
+        List<Category> GetAllCategories();
+        List<Product> GetProductsForCategory(int categoryId);
+    }
+3) public interface IProductsService
+    {
+        Product GetProductById(int productId);
+        List<Product> GetAllProducts();
+    }
+	
+4) dodati u /Implementation podfolder implementacije
+
+5) Install-Package Unity.WebAPI
+
+6) zamijeniti direktnu implementaciju sa IProductsService i ICategoryService
+6a) registrirati Unity-u
+
+7) testirati
+
+
+****************END 9 - UNIT TESTING  *******************************************************************************************
