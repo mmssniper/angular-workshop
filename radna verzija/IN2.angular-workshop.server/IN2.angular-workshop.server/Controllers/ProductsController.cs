@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using IN2.angular_workshop.server.Models;
 using System.Net.Http.Headers;
+using IN2.angular_workshop.server.Results;
 
 namespace IN2.angular_workshop.server.Controllers
 {
@@ -16,17 +17,17 @@ namespace IN2.angular_workshop.server.Controllers
         /// </summary>
         /// <param name="productId">Product Id</param>
         /// <returns>Returns requested product details</returns>
-        public IHttpActionResult GetProductDetails(int id)
+        public IHttpActionResult GetProductDetails(int productId)
         {
             var product = new Product
-            {
-                Id = 1,
-                Name = "Dummy product",
-                Price = 10.00m,
-                DateCreated = DateTime.Now
-            };
+                {
+                    Id = 1,
+                    Name = "Dummy product",
+                    Price = 10.00m,
+                    DateCreated = DateTime.Now
+                };
 
-            return Ok(product);
+            return new DecoratedTextResult(product.Name, Request);
         }
     }
 }

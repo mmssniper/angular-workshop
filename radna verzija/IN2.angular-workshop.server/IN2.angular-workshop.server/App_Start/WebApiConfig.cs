@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IN2.angular_workshop.server.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -16,6 +17,8 @@ namespace IN2.angular_workshop.server
 
             // koliko će Web API biti verbose sa greškama
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.LocalOnly;
+
+            config.Filters.Add(new ValidateErrorAttribute());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

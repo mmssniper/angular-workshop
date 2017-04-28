@@ -113,6 +113,38 @@ CategoriesController --> Kreiranje metode GetCategoryDetails(id) --> vraća 2 ka
 4) dodati try-catch na jednu metodu i onda dodati Request.CreateErrorResponse (upravljanje StatusCodovima, NotFound,BadRequest,InternalServerError, Unathorized,Forbidden,MethodNotAllowed...)
 4a) namjerno dodati throw throw new ApplicationException("test exceptiona...");            || throw new HttpResponseException(HttpStatusCode.NotFound);
 
-5) POST primjer kako postaviti Location nakon 201 - HttpsStatusCode.Created poruke
+5) Dodati POST (Category) --> pokazati kako funkcionira
+5a) Demonstrirati Location Header (201) - response.Headers.Location
+var response = Request.CreateResponse(HttpStatusCode.Created, category);
+response.Headers.Location = new Uri(Request.RequestUri, string.Format("category/{0}", category.Id));
 	
 ****************END 2 - HttpResponseMessage*******************************************************************************************
+
+
+
+****************3 - IHttpActionResult *******************************************************************************************
+
+1) sve metode prebaciti na IHttpActionResult
+1a) sve exception handlere prebaciti na InternalServerError-BadRequest
+
+3a) Dodati ModelState.IsValid --> BadRequest
+3b) ukrasiti model sa DataAnnotationom
+3c) POST --> BadRequest, InternalServerError, Created (LOCATION)
+
+4) dodati Required nad Category.Name --> testiranje json (Name:null) --> demonstrirati kako se serijalizira model state
+
+5) DEMONSTRIRATI OVERPOSTING (ignoriranje ostalih parametara json-xml ---> uvijek samo primati skupinu parametara koji su dozvoljeni toj roli-akciji-procesu)
+
+6) WEB API NEMA DEFAULT UGRAĐENU PODRŠKU ZA SERIJALIZACIJU MODEL STATEADodati
+Dodati custom ValidateErrorAttribute u Filters folder
+6a) registrirati u WebApiConfig --> Filters.Add(new ....)
+6b) Testirati
+
+
+7) dodati DecoratedTextResult(string value, HttpRequestMessage request) u Results direktorij--> 
+7a) vratiti njega na products/getproductdetails?productId=1 
+7b) provjeriti da se vraća npr. Accepted umjesto Ok-200
+
+
+****************END 3 - IHttpActionResult *******************************************************************************************
+
