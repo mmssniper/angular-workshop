@@ -12,10 +12,10 @@ namespace IN2.angular_workshop.server
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            //config.EnableCors();
+            config.EnableCors();
 
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            //var cors = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();

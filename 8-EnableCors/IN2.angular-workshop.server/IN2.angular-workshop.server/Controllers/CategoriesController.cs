@@ -9,7 +9,7 @@ using System.Web.Http.Cors;
 
 namespace IN2.angular_workshop.server.Controllers
 {
-    //[EnableCors(origins: "http://mywebclient.azurewebsites.net", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://mywebclient.azurewebsites.net", headers: "*", methods: "*")]
     //[DisableCors]
     public class CategoriesController : ApiController
     {
@@ -58,6 +58,7 @@ namespace IN2.angular_workshop.server.Controllers
         /// </summary>
         /// <param name="categoryId">Category Id</param>        
         [ActionName("get-products")]
+        [DisableCors]
         public IHttpActionResult GetProducts(int id)
         {            
             try
