@@ -122,9 +122,30 @@ response.Headers.Location = new Uri(Request.RequestUri, string.Format("category/
 
 ****************START 3 - ContentNegotiator i Custom Type Formatteri *******************************************************************************************
 
-1) demonstrirati kako se može upravljati sa Content Negotiatorom direktno
+1) OBJASNITI PROCES 
+2) implementirati - demonstrirati kako se može upravljati sa Content Negotiatorom direktno
 
 ****************END 3 -  ContentNegotiator i Custom Type Formatteri *******************************************************************************************
+
+
+****************START 4 - Exception Filteri - override default ponašanja *******************************************************************************************
+
+1) OBJASNITI PROCES 
+2) public class NotImplExceptionFilterAttribute : ExceptionFilterAttribute
+    {
+        public override void OnException(HttpActionExecutedContext actionExecutedContext)
+        {
+            if (actionExecutedContext.Exception is NotImplementedException)
+            {
+                actionExecutedContext.Response = new HttpResponseMessage(HttpStatusCode.NotImplemented);
+            }
+        }
+    }
+	
+3) registrirati ga na akciji, controlleru-globalno
+4) demonstirati na Products/GetAll
+
+****************END 4 -  Exception Filteri - override default ponašanja *******************************************************************************************
 
 
 
