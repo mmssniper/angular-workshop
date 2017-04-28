@@ -108,7 +108,6 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\ICategoryService_productsService.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Filters\ValidateErrorAttribute.cs" />
     <Compile Include="Global.asax.cs">
