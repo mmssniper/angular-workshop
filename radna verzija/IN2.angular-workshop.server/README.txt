@@ -120,9 +120,15 @@ response.Headers.Location = new Uri(Request.RequestUri, string.Format("category/
 	
 ****************END 2 - HttpResponseMessage*******************************************************************************************
 
+****************START 3 - ContentNegotiator i Custom Type Formatteri *******************************************************************************************
+
+1) demonstrirati kako se može upravljati sa Content Negotiatorom direktno
+
+****************END 3 -  ContentNegotiator i Custom Type Formatteri *******************************************************************************************
 
 
-****************3 - IHttpActionResult *******************************************************************************************
+
+****************5 - IHttpActionResult *******************************************************************************************
 
 1) sve metode prebaciti na IHttpActionResult
 1a) sve exception handlere prebaciti na InternalServerError-BadRequest
