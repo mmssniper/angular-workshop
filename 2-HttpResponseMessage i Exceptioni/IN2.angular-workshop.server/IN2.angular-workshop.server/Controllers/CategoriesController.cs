@@ -42,8 +42,9 @@ namespace IN2.angular_workshop.server.Controllers
                 }
             };
 
-            //throw new ApplicationException("test exceptiona...");            
-            //throw new HttpResponseException(HttpStatusCode.NotFound);
+                //throw new ApplicationException("test exceptiona...");            
+                //throw new HttpResponseException(HttpStatusCode.NotFound);
+                //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
 
                 //DODATI THROW NEW EXCEPTION!!!
                 return Request.CreateResponse(HttpStatusCode.OK, categories);
@@ -78,6 +79,17 @@ namespace IN2.angular_workshop.server.Controllers
             };
 
             return Request.CreateResponse(HttpStatusCode.OK, products);
+        }
+
+        public HttpResponseMessage PostCategory(Category category)
+        {
+            //spremi kategoriju
+            category.Id = 10;
+
+            var response = Request.CreateResponse(HttpStatusCode.Created, category);
+            response.Headers.Location = new Uri(Request.RequestUri, string.Format("category/{0}", category.Id));
+
+            return response;
         }
     }
 }

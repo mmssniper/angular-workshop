@@ -16,23 +16,17 @@ namespace IN2.angular_workshop.server.Controllers
         /// </summary>
         /// <param name="productId">Product Id</param>
         /// <returns>Returns requested product details</returns>
-        public HttpResponseMessage GetProductDetails(int productId)
+        public IHttpActionResult GetProductDetails(int id)
         {
-            var response = Request.CreateResponse(HttpStatusCode.OK, 
-                new Product
-                {
-                    Id = 1,
-                    Name = "Dummy product",
-                    Price = 10.00m,
-                    DateCreated = DateTime.Now
-                });
+            var product = new Product
+            {
+                Id = 1,
+                Name = "Dummy product",
+                Price = 10.00m,
+                DateCreated = DateTime.Now
+            };
 
-            //response.Headers.CacheControl = new CacheControlHeaderValue()
-            //{
-            //    NoCache = true
-            //};
-
-            return response;
+            return Ok(product);
         }
     }
 }

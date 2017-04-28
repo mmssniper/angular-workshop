@@ -112,5 +112,7 @@ CategoriesController --> Kreiranje metode GetCategoryDetails(id) --> vraća 2 ka
 
 4) dodati try-catch na jednu metodu i onda dodati Request.CreateErrorResponse (upravljanje StatusCodovima, NotFound,BadRequest,InternalServerError, Unathorized,Forbidden,MethodNotAllowed...)
 4a) namjerno dodati throw throw new ApplicationException("test exceptiona...");            || throw new HttpResponseException(HttpStatusCode.NotFound);
+
+5) POST primjer kako postaviti Location nakon 201 - HttpsStatusCode.Created poruke
 	
 ****************END 2 - HttpResponseMessage*******************************************************************************************
