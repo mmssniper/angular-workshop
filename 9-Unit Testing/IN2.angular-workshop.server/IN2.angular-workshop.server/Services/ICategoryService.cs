@@ -11,5 +11,8 @@ namespace IN2.angular_workshop.server.Services
     {
         List<Category> GetAllCategories();
         List<Product> GetProductsForCategory(int categoryId);
+
+        Category GetCategory(int categoryId);
+        Category Save(Category category);
     }
 }

@@ -58,6 +58,27 @@ namespace IN2.angular_workshop.server.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("get-category-details/{categoryId:int:min(1)}")]
+        public IHttpActionResult GetCategory(int categoryId)
+        {
+            try
+            {
+                var category = _categoryService.GetCategory(categoryId);
+
+                if (category != null)
+                {
+                    return Ok(category);
+                }
+
+                return NotFound();
+            }
+            catch (Exception exc)
+            {
+                return InternalServerError(exc);
+            }
+        }
+
         [HttpPost]
         [Route("save-category")]
         public IHttpActionResult SaveCategory(Category category)
@@ -66,12 +87,12 @@ namespace IN2.angular_workshop.server.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             try
             {
-                //spremi kategoriju
-                category.Id = 10;
+                var savedCategory = _categoryService.Save(category);
 
-                return Created(new Uri(Request.RequestUri, string.Format("category/{0}", category.Id)), category);
+                return Created(new Uri(Request.RequestUri, string.Format("category/{0}", savedCategory.Id)), savedCategory);
             }
             catch (Exception exc)
             {

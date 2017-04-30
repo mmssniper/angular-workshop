@@ -21,6 +21,13 @@ namespace IN2.angular_workshop.server.Services
             return _categories;
         }
 
+        public Category GetCategory(int categoryId)
+        {
+            return _categories
+                    .Where(x => x.Id == categoryId)
+                    .FirstOrDefault();
+        }
+
         public List<Product> GetProductsForCategory(int categoryId)
         {
             var category = _categories
@@ -32,6 +39,31 @@ namespace IN2.angular_workshop.server.Services
 
             return category.Products;
         }
+
+        public Category Save(Category category)
+        {
+            if (category.Id == 0)
+            {
+                var maxIndex = _categories.Max(x => x.Id);
+
+                category.Id = maxIndex++;
+
+                _categories.Add(category);
+
+                return category;
+            }
+
+            var index = _categories.FindIndex(x => x.Id == category.Id);
+
+            if (index >= 0)
+            {
+                _categories[index] = category;
+                return category;
+            }
+
+            throw new ApplicationException("Invalid logic for saving categories");
+        }
+
 
         private List<Category> InitAndFill()
         {
