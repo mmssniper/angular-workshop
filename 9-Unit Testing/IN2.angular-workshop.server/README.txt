@@ -237,7 +237,7 @@ config.EnableCors(cors);
 	
 4) dodati u /Implementation podfolder implementacije
 
-5) Install-Package Unity.WebAPI
+5) Install-Package Microsoft ASP.NET Web API 2 Core u Test projekt
 
 6) zamijeniti direktnu implementaciju sa IProductsService i ICategoryService
 6a) registrirati Unity-u

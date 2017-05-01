@@ -16,6 +16,12 @@ namespace IN2.angular_workshop.server.Services
             _categories = InitAndFill();
 
         }
+
+        public CategoryService(List<Category> categories)
+        {
+            _categories = categories;
+        }
+
         public List<Category> GetAllCategories()
         {
             return _categories;
