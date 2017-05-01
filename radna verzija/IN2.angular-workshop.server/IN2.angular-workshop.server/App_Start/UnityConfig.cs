@@ -15,8 +15,8 @@ namespace IN2.angular_workshop.server
             // it is NOT necessary to register your controllers
 
             // e.g. container.RegisterType<ITestService, TestService>();
-            container.RegisterType<IProductsService, ProductsService>();
-            container.RegisterType<ICategoryService, CategoryService>();
+            container.RegisterType<IProductsService, ProductsService>(new InjectionConstructor());
+            container.RegisterType<ICategoryService, CategoryService>(new InjectionConstructor());
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
