@@ -20,13 +20,18 @@ namespace IN2.angular_workshop.server.Services
         public List<Product> GetAllProducts()
         {
             return _products;
-        }
+        }       
 
-        public Product GetProductById(int productId)
+        public Product GetProduct(int productId)
         {
             return _products
                     .Where(x => x.Id == productId)
                     .FirstOrDefault();
+        }
+
+        public List<Product> GetBestSellingProducts()
+        {
+            throw new NotImplementedException();
         }
 
         private List<Product> InitAndFill()

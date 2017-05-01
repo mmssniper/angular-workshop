@@ -4,17 +4,25 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using IN2.angular_workshop.server.Models;
 using System.Net.Http.Headers;
 using IN2.angular_workshop.server.Results;
 using System.Web.Http.ModelBinding;
 using IN2.angular_workshop.server.ModelBinders;
+using IN2.angular_workshop.server.Models;
+using IN2.angular_workshop.server.Services;
 
 namespace IN2.angular_workshop.server.Controllers
 {
     [RoutePrefix("api/products")]
     public class ProductsController : ApiController
     {
+        private readonly IProductsService _productService;
+
+        public ProductsController(IProductsService productService)
+        {
+            _productService = productService;
+        }
+
         /// <summary>
         /// Fetch all details of one product
         /// </summary>
@@ -23,18 +31,39 @@ namespace IN2.angular_workshop.server.Controllers
         [Route("get-product-details/{productId:int}")]
         public IHttpActionResult GetProductDetails(int productId)
         {
-            var product = new Product
-                {
-                    Id = 1,
-                    Name = "Dummy product",
-                    Price = 10.00m,
-                    DateCreated = DateTime.Now
-                };
+            try
+            {
+                var product = _productService.GetProduct(productId);
 
-            return new DecoratedTextResult(product.Name, Request);
+                if (product == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(product);
+            }
+            catch(Exception exc)
+            {
+                return InternalServerError(exc);
+            }
         }
 
-        
+        [Route("get-bestselling")]
+        public IHttpActionResult GetTopThreeBestSellers()
+        {
+            try
+            {
+                var products = _productService.GetBestSellingProducts();
+
+                return Ok(products);
+            }
+            catch (Exception exc)
+            {
+                return InternalServerError(exc);
+            }
+        }
+
+
         [HttpPost]
         [Authorize]
         [Route("save-product")]

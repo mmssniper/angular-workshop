@@ -9,7 +9,10 @@ namespace IN2.angular_workshop.server.Services
 {
     public interface IProductsService
     {
-        Product GetProductById(int productId);
         List<Product> GetAllProducts();
+
+        Product GetProduct(int productId);
+
+        List<Product> GetBestSellingProducts();
     }
 }
