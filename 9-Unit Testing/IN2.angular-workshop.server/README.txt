@@ -242,7 +242,111 @@ config.EnableCors(cors);
 6) zamijeniti direktnu implementaciju sa IProductsService i ICategoryService
 6a) registrirati Unity-u
 
-7) testirati
+7) testirati da sve radi
 
+8) dodati slijedeće testove u CategoryControllerTests
+[TestMethod]
+        public void GetAllCategories_WithValidCollection_ShouldReturnCorrectResultAndCollection()
+        {
+            var testCategories = CategoriesDbHelper.InitForBasicTest();
 
+            ICategoryService catService = new CategoryService(testCategories);
+
+            var categoryController = new CategoriesController(catService);
+
+            var result = categoryController.GetAllCategories() as OkNegotiatedContentResult<List<Category>>;
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(testCategories.Count, result.Content.Count);
+        }
+
+        [TestMethod]
+        public void GetCategoryDetails_ForNonExistingProductId_ShouldNotFindProduct()
+        {
+            var testCategories = CategoriesDbHelper.InitForBasicTest();
+
+            ICategoryService catService = new CategoryService(testCategories);
+
+            var categoryController = new CategoriesController(catService);
+
+            var result = categoryController.GetCategory(1000);
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
+        }
+
+        [TestMethod]
+        public void GetCategoryDetails_ForExistingCategory_ShouldReturnCorrentCategory()
+        {
+            var testCategories = CategoriesDbHelper.InitForBasicTest();
+
+            ICategoryService catService = new CategoryService(testCategories);
+
+            var categoryController = new CategoriesController(catService);
+
+            var result = categoryController.GetCategory(1) as OkNegotiatedContentResult<Category>;
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(testCategories[0].Id, result.Content.Id);
+            Assert.AreEqual(testCategories[0].Name, result.Content.Name);
+        }
+
+9) vratiti Products/getbest selling na HttpResponseMessage
+
+9a) kreirati ProductsControllerTests.cs
+9b) kreirati u Helpers/DummyProductsService.cs i implementirati samo GetBestSelling koji vraća listu od tri proizvoda
+9c) kreirati test metodu
+
+[TestMethod]
+        public void GetBestSelling_ShouldReturnCorrectNumberOfProducts()
+        {
+            var dummyProductsService = new DummyProductsService();
+
+            var productsController = new ProductsController(dummyProductsService);
+
+            var response = productsController.GetTopThreeBestSellers();
+
+            List<Product> products;
+            Assert.IsTrue(response.TryGetContentValue<List<Product>>(out products));
+            Assert.AreEqual(dummyProductsService.GetBestSellingProducts().Count, products.Count);
+        }
+9d) pokrenuti -.> rezultat?
+9e) dodati i ovo
+productsController.Request = new HttpRequestMessage();
+productsController.Configuration = new HttpConfiguration();  
+
+10) sada radi
+
+11) dodati Moq
+
+[TestMethod]
+        public void GetProductDetails_WhenValidId_ShouldReturnCorrectProduct()
+        {
+            //setup service mock
+            var serviceMock = new Mock<IProductsService>();
+            serviceMock.Setup(service => service.GetProduct(1))
+                        .Returns(
+                            new Product{
+                                Id = 1,
+                                Name = "Test products"
+                            });
+
+            var productsController = new ProductsController(serviceMock.Object);
+
+            var result = productsController.GetProductDetails(1);
+
+            Assert.IsInstanceOfType(result, typeof(OkNegotiatedContentResult<Product>));
+            var okResult = result as OkNegotiatedContentResult<Product>;
+
+            Assert.AreEqual("Test products", okResult.Content.Name);
+            Assert.AreEqual(1, okResult.Content.Id);
+        }
+
+*************************END UNIT TESTING************************************************************
+
+***************DODAVANJE LOG4NET*********************************************************************
+1) http://devthings.com.ua/implementing-logging-for-asp-net-web-api-with-log4net/
+
+2) Install-Package UnityLog4NetExtension
+
+3) testirati sa ILog
+***************END LOG4NET***************************************************************************
 ****************END 9 - UNIT TESTING  *******************************************************************************************

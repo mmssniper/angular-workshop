@@ -31,7 +31,7 @@ namespace IN2.angular_workshop.server.Services
 
         public List<Product> GetBestSellingProducts()
         {
-            throw new NotImplementedException();
+            return _products.Take(3).ToList();
         }
 
         private List<Product> InitAndFill()
@@ -49,6 +49,20 @@ namespace IN2.angular_workshop.server.Services
                     {
                         Id = 2,
                         Name = "Album 2",
+                        Price = 80.00m,
+                        DateCreated = new DateTime(2007,10,10)
+                    },
+                    new Product
+                    {
+                        Id = 3,
+                        Name = "Album 3",
+                        Price = 80.00m,
+                        DateCreated = new DateTime(2007,10,10)
+                    },
+                    new Product
+                    {
+                        Id = 4,
+                        Name = "Album 4",
                         Price = 80.00m,
                         DateCreated = new DateTime(2007,10,10)
                     }

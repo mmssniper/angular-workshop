@@ -49,17 +49,17 @@ namespace IN2.angular_workshop.server.Controllers
         }
 
         [Route("get-bestselling")]
-        public IHttpActionResult GetTopThreeBestSellers()
+        public HttpResponseMessage GetTopThreeBestSellers()
         {
             try
             {
                 var products = _productService.GetBestSellingProducts();
 
-                return Ok(products);
+                return Request.CreateResponse(HttpStatusCode.OK, products);
             }
             catch (Exception exc)
             {
-                return InternalServerError(exc);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
             }
         }
 
@@ -69,7 +69,7 @@ namespace IN2.angular_workshop.server.Controllers
         [Route("save-product")]
         public IHttpActionResult AddProductDiscount([ModelBinder(typeof(ProductDiscountModelBinder))] ProductDiscount productDiscount)
         {
-            return Ok();
+            throw new NotImplementedException();
         }
     }
 }

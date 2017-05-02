@@ -1,15 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\2-HttpResponseMessage i Exceptioni",
+    "\\2-HttpResponseMessage i Exceptioni\\IN2.angular-workshop.server",
+    "\\2-HttpResponseMessage i Exceptioni\\IN2.angular-workshop.server\\IN2.angular-workshop.server",
+    "\\2-HttpResponseMessage i Exceptioni\\IN2.angular-workshop.server\\IN2.angular-workshop.server\\Controllers",
     "\\radna verzija",
     "\\radna verzija\\IN2.angular-workshop.server",
     "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server",
     "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server.Tests",
-    "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server.Tests\\Helpers",
-    "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server\\Controllers",
-    "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server\\Services",
-    "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server\\Services\\Implementation"
+    "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server.Tests\\Helpers"
   ],
-  "SelectedNode": "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server.Tests\\TestCategoryController.cs",
+  "SelectedNode": "\\2-HttpResponseMessage i Exceptioni\\IN2.angular-workshop.server\\IN2.angular-workshop.server\\Controllers\\CategoriesController.cs",
   "PreviewInSolutionExplorer": false
 }
