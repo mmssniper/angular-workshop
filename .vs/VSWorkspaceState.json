@@ -1,16 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\2-HttpResponseMessage i Exceptioni",
-    "\\2-HttpResponseMessage i Exceptioni\\IN2.angular-workshop.server",
-    "\\2-HttpResponseMessage i Exceptioni\\IN2.angular-workshop.server\\IN2.angular-workshop.server",
-    "\\2-HttpResponseMessage i Exceptioni\\IN2.angular-workshop.server\\IN2.angular-workshop.server\\Controllers",
-    "\\radna verzija",
-    "\\radna verzija\\IN2.angular-workshop.server",
-    "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server",
-    "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server.Tests",
-    "\\radna verzija\\IN2.angular-workshop.server\\IN2.angular-workshop.server.Tests\\Helpers"
+    "\\3-Content Negotiator",
+    "\\3-Content Negotiator\\IN2.angular-workshop.server",
+    "\\3a - JsonMediaTypeFormatter",
+    "\\3a - JsonMediaTypeFormatter\\IN2.angular-workshop.server",
+    "\\3a - JsonMediaTypeFormatter\\IN2.angular-workshop.server\\IN2.angular-workshop.server",
+    "\\3a - JsonMediaTypeFormatter\\IN2.angular-workshop.server\\IN2.angular-workshop.server\\Controllers",
+    "\\3a - JsonMediaTypeFormatter\\IN2.angular-workshop.server\\IN2.angular-workshop.server\\Filters"
   ],
-  "SelectedNode": "\\2-HttpResponseMessage i Exceptioni\\IN2.angular-workshop.server\\IN2.angular-workshop.server\\Controllers\\CategoriesController.cs",
+  "SelectedNode": "\\3a - JsonMediaTypeFormatter",
   "PreviewInSolutionExplorer": false
 }

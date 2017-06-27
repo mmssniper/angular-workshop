@@ -71,6 +71,14 @@
     <Compile Include="ProductsControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IN2.angular-workshop.server.dal\IN2.angular-workshop.server.dal.csproj">
+      <Project>{8c17d634-87b8-480d-8b3d-b092a2edfdb9}</Project>
+      <Name>IN2.angular-workshop.server.dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IN2.angular-workshop.server.Models\IN2.angular-workshop.server.Models.csproj">
+      <Project>{67915777-7947-4b1f-838d-5f483ff98dbc}</Project>
+      <Name>IN2.angular-workshop.server.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IN2.angular-workshop.server\IN2.angular-workshop.server.csproj">
       <Project>{506B44D4-4E89-4774-B409-AEFF93C67B24}</Project>
       <Name>IN2.angular-workshop.server</Name>

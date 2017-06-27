@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IN2.angular-workshop.server
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IN2.angular-workshop.server.Tests", "IN2.angular-workshop.server.Tests\IN2.angular-workshop.server.Tests.csproj", "{7A61FF19-97E2-40E2-9A5A-D11C46E433CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IN2.angular-workshop.server.dal", "IN2.angular-workshop.server.dal\IN2.angular-workshop.server.dal.csproj", "{8C17D634-87B8-480D-8B3D-B092A2EDFDB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IN2.angular-workshop.server.Models", "IN2.angular-workshop.server.Models\IN2.angular-workshop.server.Models.csproj", "{67915777-7947-4B1F-838D-5F483FF98DBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{7A61FF19-97E2-40E2-9A5A-D11C46E433CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A61FF19-97E2-40E2-9A5A-D11C46E433CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A61FF19-97E2-40E2-9A5A-D11C46E433CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C17D634-87B8-480D-8B3D-B092A2EDFDB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C17D634-87B8-480D-8B3D-B092A2EDFDB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C17D634-87B8-480D-8B3D-B092A2EDFDB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C17D634-87B8-480D-8B3D-B092A2EDFDB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67915777-7947-4B1F-838D-5F483FF98DBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67915777-7947-4B1F-838D-5F483FF98DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67915777-7947-4B1F-838D-5F483FF98DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67915777-7947-4B1F-838D-5F483FF98DBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,6 +11,7 @@ using IN2.angular_workshop.server.ModelBinders;
 using IN2.angular_workshop.server.Models;
 using IN2.angular_workshop.server.Services;
 
+
 namespace IN2.angular_workshop.server.Controllers
 {
     [RoutePrefix("api/products")]

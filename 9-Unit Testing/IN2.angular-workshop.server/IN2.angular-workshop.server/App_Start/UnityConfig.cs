@@ -1,3 +1,4 @@
+using IN2.angular_workshop.server.dal;
 using IN2.angular_workshop.server.Services;
 using Microsoft.Practices.Unity;
 using System.Web.Http;
@@ -11,12 +12,15 @@ namespace IN2.angular_workshop.server
         {
 			var container = new UnityContainer();
 
+            container.RegisterType<ShopContext>(new HierarchicalLifetimeManager());
             // register all your components with the container here
             // it is NOT necessary to register your controllers
 
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<IProductsService, ProductsService>(new InjectionConstructor());
-            container.RegisterType<ICategoryService, CategoryService>(new InjectionConstructor());
+            container.RegisterType<ICategoryService, CategoryService>(new InjectionConstructor(new ResolvedParameter<ShopContext>()));
+
+            
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

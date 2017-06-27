@@ -135,7 +135,8 @@ response.Headers.Location = new Uri(Request.RequestUri, string.Format("category/
 
 5) DEMONSTRIRATI OVERPOSTING (ignoriranje ostalih parametara json-xml ---> uvijek samo primati skupinu parametara koji su dozvoljeni toj roli-akciji-procesu)
 
-6) WEB API NEMA DEFAULT UGRAĐENU PODRŠKU ZA SERIJALIZACIJU MODEL STATEADodati
+6) WEB API NEMA DEFAULT UGRAĐENU PODRŠKU ZA SERIJALIZACIJU MODEL STATEA
+
 Dodati custom ValidateErrorAttribute u Filters folder
 6a) registrirati u WebApiConfig --> Filters.Add(new ....)
 6b) Testirati
